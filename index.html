@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Senin ilinde güneş kaçta doğuyor?</title>
+<meta name="description" content="Türkiye 2016'dan beri yıl boyu UTC+3. 81 ilde her gün güneşin doğduğu ve battığı saat; Edirne ile Hakkari arasındaki fark ve UTC+2 olsaydı ne değişirdi.">
+<meta property="og:title" content="Senin ilinde güneş kaçta doğuyor?">
+<meta property="og:description" content="81 il, 365 gün: gün doğumu ve batımı. UTC+3 ile UTC+2 karşılaştırması.">
+<meta property="og:image" content="https://birtohum.github.io/gunes-kacta-doguyor/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stil.css?v=1">
+<style>
+  :root { --vurgu: #b45309; --erken: #fde68a; --gec: #1e3a8a; }
+  @media (prefers-color-scheme: dark) { :root { --vurgu: #fbbf24; --erken: #fcd34d; --gec: #1e40af; } }
+  .arac { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; margin-top: 22px; }
+  .arac label { font-size: 13px; color: var(--soluk); display: flex; flex-direction: column; gap: 4px; }
+  .arac input[type=range] { width: min(420px, 80vw); accent-color: var(--vurgu); }
+  .gun { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; min-width: 140px; }
+  .sekme { margin-bottom: 0; }
+  .ozet-giris { margin: 0; font-size: 18px; color: var(--soluk); max-width: 720px; }
+  .ozet-giris b { color: var(--yazi); }
+  #harita path { cursor: pointer; }
+  #harita .saat { font-size: 9px; font-weight: 600; fill: var(--yazi); paint-order: stroke; stroke: var(--zemin); stroke-width: 2.4px; pointer-events: none; }
+  .lejant .olcek { display: inline-block; width: 160px; height: 10px; border-radius: 3px; vertical-align: -1px; margin: 0 6px; background: linear-gradient(90deg, var(--erken), var(--gec)); }
+  #yil svg { width: 100%; height: auto; display: block; }
+  #yil text { font-family: inherit; font-size: 11px; fill: var(--soluk); }
+  @media (max-width: 720px) { #harita .saat { display: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="ust">
+    <p class="ust-etiket">81 il · 365 gün · astronomik hesap</p>
+    <h1>Senin ilinde güneş<br>kaçta doğuyor?</h1>
+    <p class="ozet-giris" id="giris"></p>
+    <div class="arac">
+      <span class="gun" id="gunAd"></span>
+      <label><span>Gün</span><input type="range" id="gun" min="0" max="364" step="1" aria-label="Yılın günü"></label>
+      <div class="sekme" role="radiogroup" aria-label="Saat dilimi">
+        <button id="s3" class="secili" role="radio" aria-checked="true">UTC+3 (bugünkü)</button>
+        <button id="s2" role="radio" aria-checked="false">UTC+2 olsaydı</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="harita-kutu">
+    <div class="sekme" role="tablist" style="margin-top:14px">
+      <button id="tDog" class="secili" role="tab" aria-selected="true">Gün doğumu</button>
+      <button id="tBat" role="tab" aria-selected="false">Gün batımı</button>
+    </div>
+    <svg id="harita" role="img" aria-label="İllere göre gün doğumu saati"></svg>
+    <div class="lejant" id="lejant"></div>
+  </section>
+
+  <section class="ozet" id="ozet" aria-live="polite"></section>
+
+  <section class="blok">
+    <h2 id="yilBaslik">Bir yıl boyunca</h2>
+    <p class="alt" id="yilAlt"></p>
+    <div id="yil"></div>
+  </section>
+
+  <footer class="dip">
+    <p><b>Hesap:</b> Gün doğumu ve batımı, NOAA'nın güneş konumu formülleriyle (güneşin üst kenarı ufukta, kırılma için −0,833°) il merkezinin koordinatı için hesaplanır; sonuç gerçek gözlemden birkaç dakika farklı olabilir. Dağlar ve yükselti hesaba katılmaz. Türkiye 2016'dan beri yıl boyu UTC+3 kullanıyor; "UTC+2 olsaydı" seçeneği aynı anı bir saat geri gösterir, yaz saati uygulamasını hesaba katmaz.</p>
+    <p><b>Harita:</b> il sınırları <a href="https://www.geoboundaries.org/">geoBoundaries</a> (CC BY-SA 2.0). Hesap tamamen tarayıcıda yapılır; dışarıdan veri çekilmez.</p>
+    <p><a href="https://github.com/birtohum/gunes-kacta-doguyor">Kaynak kodu</a> · <a href="https://birtohum.github.io/">birtohum</a></p>
+  </footer>
+</main>
+<script src="uygulama.js?v=1"></script>
+</body>
+</html>
