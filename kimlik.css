@@ -1,0 +1,12 @@
+:root{--zemin:#160f2e;--kart:#241a45;--yazi:#fff4e3;--soluk:#c3b4d6;--cizgi:#3a2c63;--vurgu:#ffb347}
+body{font-family:Karla,sans-serif;background:linear-gradient(180deg,#160f2e 0,#3a1c58 240px,#a8415b 420px,#f58b4c 520px,#160f2e 520px)}
+h1{font-family:Syne,sans-serif;font-weight:800;font-size:clamp(44px,8.6vw,96px);letter-spacing:-.03em;color:#fff4e3}
+h1 b,.buyuk{color:var(--vurgu)}
+button.secili,.secili{background:var(--vurgu)!important;color:#160f2e!important}
+input[type=range]{accent-color:var(--vurgu)}
+h1{text-wrap:balance}
+.dip{border-top:1px solid var(--cizgi)}
+/*2*/
+body{background:linear-gradient(180deg,#160f2e 0,#2c1a50 170px,#6d2b62 310px,#2f1b52 520px,#160f2e 720px)}
+h1{font-size:clamp(38px,7.2vw,80px);line-height:1.02}
+svg text{paint-order:stroke}
